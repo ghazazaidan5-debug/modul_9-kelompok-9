@@ -9,9 +9,9 @@ Perbandingan query **JOIN + agregasi** (sebelum) dengan query **kolom turunan ha
 
 |  No  |           Nama          |     NIM     |
 |:-----|:------------------------|:------------|
-|  1   | [Isi nama anggota 1]    | [Isi NIM]   |
-|  2   | [ghaza zaidan al-ghifari]    | [264311069]   |
-|  3   | [muhammad zakiy fuadiy]    | [264311077]   |
+|  1   | Isi nama anggota 1    | 2643110  |
+|  2   | ghaza zaidan al-ghifari    | 264311069   |
+|  3   | muhammad zakiy fuadiy    | 264311077   |
 
 ---
 
