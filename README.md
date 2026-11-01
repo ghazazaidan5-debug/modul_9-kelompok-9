@@ -1,4 +1,4 @@
-# Modul9_Kelompok 3
+# Modul9_Kelompok 7
 
 # Praktikum Denormalisasi: Basis Data Penjualan Sederhana
 Perbandingan query **JOIN + agregasi** (sebelum) dengan query **kolom turunan hasil denormalisasi** (sesudah) pada kasus fiktif basis data penjualan.
@@ -9,9 +9,9 @@ Perbandingan query **JOIN + agregasi** (sebelum) dengan query **kolom turunan ha
 
 |  No  |           Nama          |     NIM     |
 |:-----|:------------------------|:------------|
-|  1   | Izzata Wihanangku    | 264311072 |
-|  2   | Mutya Yuwan Ramadhani | 264311078 |
-|  3   | Putri Nurhaliza       | 264311081 |
+|  1   | [Isi nama anggota 1]    | [Isi NIM]   |
+|  2   | [ghaza zaidan al-ghifari]    | [264311069]   |
+|  3   | [muhammad zakiy fuadiy]    | [264311077]   |
 
 ---
 
@@ -22,7 +22,6 @@ Perbandingan query **JOIN + agregasi** (sebelum) dengan query **kolom turunan ha
 * [Isi Repositori](#isi-repositori)
 * [Hasil Perbandingan](#hasil-perbandingan)
 * [Risiko Denormalisasi](#risiko-denormalisasi)
-
 
 ---
 
@@ -38,7 +37,7 @@ Praktikum ini membandingkan dua cara memperoleh total belanja per pelanggan:
 
 |       Tabel      |                                             Keterangan                                           |
 |:-----------------|:-------------------------------------------------------------------------------------------------|
-| `pelanggan     ` | Data master pelanggan (`id_pelanggan`, `nama_pelanggan`, ...)                                    |
+| `pelanggan`      | Data master pelanggan (`id_pelanggan`, `nama_pelanggan`, ...)                                    |
 | `pesanan`        | Data pesanan, terhubung ke `pelanggan` lewat `id_pelanggan`                                      |
 | `detail_pesanan` | Rincian barang per pesanan (`jumlah`, `harga_satuan`), terhubung ke `pesanan` lewat `id_pesanan` |
 
@@ -49,10 +48,10 @@ Praktikum ini membandingkan dua cara memperoleh total belanja per pelanggan:
 |                            Berkas / Folder                          |           Keterangan           |
 |:--------------------------------------------------------------------|:-------------------------------|
 | [README.md](README.md)                                              | Dokumentasi praktikum          |
-| [berkas.sql](berkas.sql)          | Script Tahap 1, 2, dan 3       |
-| [Bukti Eksekusi/](Bukti%20Eksekusi/)                                  | Folder bukti eksekusi          |
-| ![Hasil Tahap 1](Bukti%20Eksekusi/Tahap%201.png)                   | Screenshot hasil Tahap 1       |
-| ![Hasil Tahap 3](Bukti%20Eksekusi/Tahap%203.png) | Screenshot hasil Tahap 3       |
+| [berkas.sql](berkas.sql)                                            | Script Tahap 1, 2, dan 3       |
+| [Bukti Eksekusi/](Bukti%20Eksekusi/)                                | Folder bukti eksekusi          |
+| ![Hasil Tahap 1](Bukti%20Eksekusi/Tahap%201.png)                    | Screenshot hasil Tahap 1       |
+| ![Hasil Tahap 3](Bukti%20Eksekusi/Tahap%203.png)                    | Screenshot hasil Tahap 3       |
 
 ---
 
@@ -76,7 +75,7 @@ GROUP BY p.id_pelanggan, p.nama_pelanggan;
 * 3 tabel, 2 INNER JOIN
 * 1 fungsi agregasi (`SUM`) dengan `GROUP BY` 2 kolom
 * Beban komputasi: dihitung ulang setiap eksekusi, sebanding dengan jumlah baris `detail_pesanan`
-* Waktu eksekusi: 0,0022 detik
+* Waktu eksekusi: [isi dari phpMyAdmin] detik
 
 ### Tahap 2: Denormalisasi (DDL)
 
@@ -106,18 +105,18 @@ FROM pelanggan;
 ```
 
 * 1 tabel, 0 JOIN, tanpa agregasi
-* Waktu eksekusi: 0,0005 detik
+* Waktu eksekusi: [isi dari phpMyAdmin] detik
 
 ---
 
 ## Hasil Perbandingan
 
-|      Aspek     |       Tahap 1 (JOIN)       | Tahap 3 (Denormalisasi) |
+|      Aspek     |       Tahap 1 (JOIN)       | Tahap 3 (Denormalisasi)    |
 |:---------------|:--------------------------:|:--------------------------:|
 | Tabel diakses  | 3                          | 1                          |
 | Jumlah JOIN    | 2                          | 0                          |
 | Agregasi       | SUM + GROUP BY             | Tidak ada                  |
-| Waktu eksekusi | 0,0022 detik               | 0,0005 detik               |
+| Waktu eksekusi | [isi] detik                | [isi] detik                |
 | Hasil          | Budi 250.000, Siti 100.000 | Budi 250.000, Siti 100.000 |
 
 **Kesimpulan:** hasilnya sama, tetapi query denormalisasi lebih sederhana dan lebih cepat karena tidak perlu JOIN dan agregasi. Selisih waktu masih kecil karena data percobaan sedikit, dan akan lebih besar pada data ribuan sampai jutaan baris.
@@ -137,7 +136,5 @@ FROM pelanggan;
 ## Risiko Denormalisasi
 
 Nilai `total_belanja` adalah salinan hasil hitung, sehingga bisa **tidak sinkron (inkonsistensi)** jika data pesanan atau detail pesanan berubah tetapi kolom tidak diperbarui. Proses tulis juga menjadi lebih berat dan butuh ruang penyimpanan tambahan.
-
-
 
 ---
