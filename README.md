@@ -38,7 +38,7 @@ Praktikum ini membandingkan dua cara memperoleh total belanja per pelanggan:
 
 |       Tabel      |                                             Keterangan                                           |
 |:-----------------|:-------------------------------------------------------------------------------------------------|
-| `pelanggan`      | Data master pelanggan (`id_pelanggan`, `nama_pelanggan`, ...)                                    |
+| `pelanggan`      | Data master pelanggan (`id_pelanggan`, `nama_pelanggan`)                                    |
 | `pesanan`        | Data pesanan, terhubung ke `pelanggan` lewat `id_pelanggan`                                      |
 | `detail_pesanan` | Rincian barang per pesanan (`jumlah`, `harga_satuan`), terhubung ke `pesanan` lewat `id_pesanan` |
 
