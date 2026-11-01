@@ -119,12 +119,12 @@ FROM pelanggan;
 |      Aspek     |       Tahap 1 (JOIN)       | Tahap 3 (Denormalisasi)    |
 |:---------------|:--------------------------:|:--------------------------:|
 | Struktur Kueri  | Panjang dan rumit (Menggunakan 2 JOIN, SUM(), GROUP BY). | Sangat pendek dan sederhana (SELECT biasa). |
-| Jumlah JOIN    | 2                          | 0                          |
-| Agregasi       | SUM + GROUP BY             | Tidak ada                  |
+| Kecepatan / Performa  | Lebih lambat karena database menghitung ulang dari awal setiap saat. |Sangat cepat karena database hanya membaca nilai yang sudah jadi. |
+|Beban Kerja     | Tinggi (melakukan operasi perkalian, penjumlahan, dan pencocokan relasi). | Ringan (hanya membaca satu tabel saja).|
 | Waktu eksekusi | 0,024 detik                | 0,001 detik                |
-| Hasil          | Budi 250.000, Siti 100.000 | Budi 250.000, Siti 100.000 |
+| Konsekuensi|Tidak ada risiko data tidak sinkron.| adanya risiko data tidak konsisten.|
 
-**Kesimpulan:** hasilnya sama, tetapi query denormalisasi lebih sederhana karena tidak perlu JOIN dan agregasi. Pada data percobaan yang hanya beberapa baris, selisih waktu belum terlihat (keduanya 0,001 detik). Perbedaan kecepatan baru terasa pada data ribuan sampai jutaan baris.
+**Kesimpulan:** hasilnya berbeda, query denormalisasi lebih sederhana karena tidak perlu JOIN dan agregasi. Pada data percobaan yang hanya beberapa baris, selisih waktu terlihat (antara 0.024 detik saat JOIN dan 0.0001 detik saat denormalisasi). dan mungkin akan sangat terasa saat data mencapai jutaan.
 
 ### Bukti Eksekusi
 
