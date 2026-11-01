@@ -118,8 +118,7 @@ FROM pelanggan;
 
 |      Aspek     |       Tahap 1 (JOIN)       | Tahap 3 (Denormalisasi)    |
 |:---------------|:--------------------------:|:--------------------------:|
-| Struktur Kueri  | Panjang dan rumit 
-(Menggunakan 2 JOIN, SUM(), GROUP BY).                          | Sangat pendek dan sederhana (SELECT biasa).                        |
+| Struktur Kueri  | Panjang dan rumit (Menggunakan 2 JOIN, SUM(), GROUP BY). | Sangat pendek dan sederhana (SELECT biasa). |
 | Jumlah JOIN    | 2                          | 0                          |
 | Agregasi       | SUM + GROUP BY             | Tidak ada                  |
 | Waktu eksekusi | 0,024 detik                | 0,001 detik                |
