@@ -73,10 +73,10 @@ GROUP BY p.id_pelanggan, p.nama_pelanggan;
 
 **Catatan kompleksitas:**
 
-* 3 tabel, 2 INNER JOIN
-* 1 fungsi agregasi (`SUM`) dengan `GROUP BY` 2 kolom
-* Beban komputasi: dihitung ulang setiap eksekusi, sebanding dengan jumlah baris `detail_pesanan`
-* Waktu eksekusi: 0,001 detik
+* Kueri ini membutuhkan operasi JOIN sebanyak dua kali untuk menghubungkan tiga tabel yang berbeda.
+* Beban Komputasi: Sistem database harus memindai dulu baris di tabel pelanggan, mencocokkannya dengan pesanan, lalu mencocokkannya lagi dengan detail_pesanan. Setelah itu, database harus mengalikan jumlah * harga_satuan, menjumlahkannya (SUM), dan mengelompokkannya (GROUP BY).
+* Waktu eksekusi: 0,024 detik
+* jika digunakan dalam skala besar maka beban komputasi akan dilakukan setiap kueri dijalankan
 
 ### Tahap 2: Denormalisasi (DDL)
 
