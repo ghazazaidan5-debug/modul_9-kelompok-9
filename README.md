@@ -109,7 +109,7 @@ SELECT
 FROM pelanggan;
 ```
 
-* 1 tabel, 0 JOIN, tanpa agregasi
+* 1 tabel, 0 JOIN, tanpa agregasi menjadikan lebih ringkas sehingga lebih sederhana
 * Waktu eksekusi: 0,001 detik
 
 ---
@@ -118,10 +118,11 @@ FROM pelanggan;
 
 |      Aspek     |       Tahap 1 (JOIN)       | Tahap 3 (Denormalisasi)    |
 |:---------------|:--------------------------:|:--------------------------:|
-| Tabel diakses  | 3                          | 1                          |
+| Struktur Kueri  | Panjang dan rumit 
+(Menggunakan 2 JOIN, SUM(), GROUP BY).                          | Sangat pendek dan sederhana (SELECT biasa).                        |
 | Jumlah JOIN    | 2                          | 0                          |
 | Agregasi       | SUM + GROUP BY             | Tidak ada                  |
-| Waktu eksekusi | 0,001 detik                | 0,001 detik                |
+| Waktu eksekusi | 0,024 detik                | 0,001 detik                |
 | Hasil          | Budi 250.000, Siti 100.000 | Budi 250.000, Siti 100.000 |
 
 **Kesimpulan:** hasilnya sama, tetapi query denormalisasi lebih sederhana karena tidak perlu JOIN dan agregasi. Pada data percobaan yang hanya beberapa baris, selisih waktu belum terlihat (keduanya 0,001 detik). Perbedaan kecepatan baru terasa pada data ribuan sampai jutaan baris.
