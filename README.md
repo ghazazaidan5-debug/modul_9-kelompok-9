@@ -130,11 +130,11 @@ FROM pelanggan;
 
 **Tahap 1 (JOIN)**
 
-![Hasil Tahap 1](Bukti%20Eksekusi/Tahap%201.png)
+![Hasil Tahap 1](Bukti%20Eksekusi/Tahap1%201.png)
 
 **Tahap 3 (Denormalisasi)**
 
-![Hasil Tahap 3](Bukti%20Eksekusi/Tahap%203.png)
+![Hasil Tahap 3](Bukti%20Eksekusi/Tahap3%203.png)
 
 ---
 
