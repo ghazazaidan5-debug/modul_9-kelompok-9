@@ -193,14 +193,3 @@ CREATE TABLE IF NOT EXISTS log_aktivitas (
         FOREIGN KEY (id_pengguna) REFERENCES pengguna(id_pengguna)
         ON UPDATE CASCADE ON DELETE RESTRICT
 ) ENGINE=InnoDB;
-
--- ============================================================
--- SELESAI
--- Catatan:
--- 1. Script ini membuat struktur database, belum mengisi data.
--- 2. Stok barang perlu diperbarui oleh proses aplikasi/transaksi.
--- 3. Hak akses Owner/Admin dan pencatatan log perlu diterapkan
---    pada program aplikasi (atau trigger, jika diminta dosen).
--- 4. Gunakan password_hash untuk menyimpan hasil hash password,
---    bukan password asli.
--- ============================================================
