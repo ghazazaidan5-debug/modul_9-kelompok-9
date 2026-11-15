@@ -1,9 +1,3 @@
--- ============================================================
--- 03_data_awal.sql
--- Data awal. SEMUA DATA FIKTIF. Jangan memasukkan data pribadi nyata.
--- ============================================================
-USE bukuku_modul11;
-
 -- ------------------------------------------------------------
 -- (A) Data inti BUKUKU (distributor bumbu dapur)
 --     Stok TIDAK diisi manual; stok terbentuk dari trigger
