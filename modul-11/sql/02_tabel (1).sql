@@ -1,8 +1,4 @@
-
--- ------------------------------------------------------------
--- (B) Tabel tambahan untuk praktikum Modul 11 (di luar ERD inti SKPL)
---     Dipakai untuk latihan JSON dan pemodelan objek pada data BUKUKU.
--- ------------------------------------------------------------
+#script yag digunakan untuk membuat tabel pada sistem bukuku
 
 CREATE TABLE jenis_barang (
     id_jenis   INT AUTO_INCREMENT PRIMARY KEY,
@@ -26,9 +22,7 @@ CREATE TABLE transaksi_objek (
     atribut         JSON
 ) ENGINE=InnoDB;
 
--- ------------------------------------------------------------
 -- (C) TRIGGER: menjaga stok otomatis (stored program)
--- ------------------------------------------------------------
 DELIMITER $$
 
 -- KF-02: barang masuk -> stok bertambah
@@ -114,9 +108,7 @@ END$$
 
 DELIMITER ;
 
--- ------------------------------------------------------------
--- (D) VIEW: laporan
--- ------------------------------------------------------------
+#laporan
 
 -- KF-06 dan KF-08: laporan stok + penanda stok menipis
 CREATE VIEW v_laporan_stok AS
