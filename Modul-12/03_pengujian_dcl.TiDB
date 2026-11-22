@@ -1,0 +1,15 @@
+-- Skrip Pengujian DCL (03_pengujian_dcl.sql)
+-- [Sesi Administrator / root]
+CREATE USER 'report_user'@'%' IDENTIFIED BY '<PASSWORD_KUAT>';
+GRANT SELECT ON transport_db.trips TO 'report_user'@'%';
+SHOW GRANTS FOR 'report_user'@'%';
+
+-- [Sesi report_user]
+SELECT * FROM transport_db.trips;                     -- Berhasil
+DELETE FROM transport_db.trips WHERE trip_id = 'T001'; -- Ditolak (Access Denied)
+
+-- [Sesi root - Pencabutan Hak]
+REVOKE SELECT ON transport_db.trips FROM 'report_user'@'%';
+
+-- [Sesi report_user - Uji Ulang]
+SELECT * FROM transport_db.trips;                     -- Ditolak (Access Denied)
