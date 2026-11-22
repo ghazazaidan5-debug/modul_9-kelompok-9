@@ -18,9 +18,9 @@ praktikum_modul12/
 │   ├── 03_pengujian_dcl.sql             # Skrip pengujian GRANT, REVOKE, dan Least Privilege
 │   └── 04_rancangan_migrasi_pjbl.sql    # Blueprint skema, query, dan RBAC proyek BUKUKU
 ├── dokumentasi/
-│   └── (Simpan screenshot bukti eksekusi DBeaver/TiDB di folder ini)
+│   └── (screenshot bukti eksekusi DBeaver/TiDB)
 ├── diagram/
-│   └── (Simpan gambar Query Tree di folder ini)
+│   └── (gambar Query Tree)
 └── README.md
 ```
 
