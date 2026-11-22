@@ -25,10 +25,9 @@ praktikum_modul12/
 ```
 
 ## Ringkasan Langkah Eksekusi
-1. **Tahap 1 & 2 (Migrasi Latihan):** Jalankan `01_migrasi_data_latihan.sql` pada instance TiDB menggunakan akun administrator (`root`), lalu jalankan kueri pertama pada `02_query_transportasi.sql` untuk memverifikasi keluaran 3 baris perjalanan (`T001`, `T003`, `T005`).
-2. **Tahap 3 (Optimisasi & Query Cost):** Jalankan perintah `EXPLAIN ANALYZE` pada `02_query_transportasi.sql` untuk mengamati *Selection Pushdown* pada lapisan penyimpanan `cop[tikv]`.
-3. **Tahap 4 (Keamanan DCL):** Jalankan `03_pengujian_dcl.sql` secara bergantian antara sesi `root` dan `report_user` untuk membuktikan pembatasan hak akses (`SELECT` berhasil, `DELETE` ditolak, dan `SELECT` ditolak setelah `REVOKE`).
+1. **Tahap 1 & 2 (Migrasi Latihan):** menjalankan `01_migrasi_data_latihan.sql` pada instance TiDB menggunakan akun administrator (`root`), lalu kueri pada `02_query_transportasi.sql` untuk memverifikasi keluaran 3 baris perjalanan (`T001`, `T003`, `T005`).
+2. **Tahap 3 (Optimisasi & Query Cost):** Menjalankan perintah `EXPLAIN ANALYZE` pada `02_query_transportasi.sql` untuk mengamati *Selection Pushdown* pada lapisan penyimpanan `cop[tikv]`.
+3. **Tahap 4 (Keamanan DCL):** Menjalankan `03_pengujian_dcl.sql` secara bergantian antara sesi `root` dan `report_user` untuk membuktikan pembatasan hak akses (`SELECT` berhasil, `DELETE` ditolak, dan `SELECT` ditolak setelah `REVOKE`).
 4. **Tahap 5 (Blueprint Proyek BUKUKU):** Berisi rancangan skema relasional ternormalisasi, indeks komposit, kueri laporan barang keluar, serta pembagian *role* `role_admin_gudang` dan `role_owner` pada `04_rancangan_migrasi_pjbl.sql`.
 
-> **Catatan Keamanan:** Seluruh kredensial dalam skrip menggunakan *placeholder* dan tidak menyimpan kata sandi asli.
 
