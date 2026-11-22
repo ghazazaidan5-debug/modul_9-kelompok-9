@@ -1,0 +1,15 @@
+-- Skrip Migrasi & Query Pengujian (01_migrasi_data_latihan.sql & 02_query_transportasi.sql)
+CREATE DATABASE IF NOT EXISTS transport_db;
+USE transport_db;
+CREATE TABLE routes (route_id INT PRIMARY KEY, route_name VARCHAR(100));
+CREATE TABLE trips (trip_id VARCHAR(10) PRIMARY KEY, route_id INT REFERENCES routes(route_id), started_at TIMESTAMP, status VARCHAR(20));
+
+INSERT INTO routes VALUES (12, 'Koridor Pusat–Terminal'), (15, 'Koridor Kampus–Stasiun'), (18, 'Koridor Pasar–Kota');
+INSERT INTO trips VALUES
+  ('T001', 12, '2026-11-02 07:10:00', 'completed'), ('T002', 15, '2026-11-02 07:25:00', 'completed'),
+  ('T003', 12, '2026-11-03 08:05:00', 'delayed'),   ('T004', 18, '2026-10-29 06:50:00', 'completed'),
+  ('T005', 12, '2026-11-05 17:20:00', 'completed'), ('T006', 15, '2026-11-06 09:15:00', 'cancelled');
+
+SELECT t.trip_id, t.started_at, r.route_name
+FROM trips AS t JOIN routes AS r ON r.route_id = t.route_id
+WHERE t.route_id = 12 AND t.started_at >= '2026-11-01';
